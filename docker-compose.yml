@@ -1,0 +1,22 @@
+version: "3.7"
+services:
+  frontend:
+    build:
+      context: ./apps/frontend/app
+      dockerfile: ../docker/Dockerfile
+      target: dev
+    ports:
+      - "3010:3000"
+    volumes:
+      - ./apps/frontend/app:/app
+    command: npm run dev
+  backend:
+    build:
+      context: ./apps/backend/app
+      dockerfile: ../docker/Dockerfile
+      target: dev
+    ports:
+      - "5010:5000"
+    volumes:
+      - ./apps/backend/app:/app
+    command: python main.py
