@@ -14,4 +14,17 @@ class Book(db.Model):
   author: Mapped[str] = mapped_column()
   publisher: Mapped[str] = mapped_column()
   year: Mapped[int] = mapped_column()
-  status: Mapped[RentalStatus] = mapped_column()
+  status: Mapped[RentalStatus] = mapped_column() 
+  
+  def __repr__(self):
+    return f"<Book(id={self.id}, title='{self.title}', author='{self.author}', publisher='{self.publisher}', year={self.year}, status='{self.status.name}')>"
+
+  def to_dict(self):
+    return {
+      'id': self.id,
+      'title': self.title,
+      'author': self.author,
+      'publisher': self.publisher,
+      'year': self.year,
+      'status': self.status.name
+    }

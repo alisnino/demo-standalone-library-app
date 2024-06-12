@@ -1,3 +1,10 @@
+# Language/environment specific
 .venv
 __pycache__/
+
+# db
 *.db
+
+# infra
+node_modules/
+cdk.out/
